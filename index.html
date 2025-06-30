@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeGenZ - Brand Manager Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a756b;
+            --primary-light: #2d9a8c;
+            --primary-lighter: #4db8a8;
+            --primary-lightest: #7dd3c0;
+            --primary-dark: #0f4c44;
+            --primary-darker: #0a3228;
+            --white: #ffffff;
+            --light-gray: #f8fffe;
+            --medium-gray: #e8f5f3;
+            --text-light: rgba(26, 117, 107, 0.7);
+            --text-lighter: rgba(26, 117, 107, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: var(--light-gray);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26, 117, 107, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-item {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .hero-title .highlight {
+            color: var(--primary-light);
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(26, 117, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(26, 117, 107, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--light-gray);
+            border-radius: 16px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--primary-lightest), var(--primary-lighter));
+            border-radius: 20px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        /* Marketing Tools Section */
+        .tools {
+            background: var(--medium-gray);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .tool-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(26, 117, 107, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(26, 117, 107, 0.15);
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        .tool-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .tool-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Advertising Formats Section */
+        .advertising {
+            background: var(--white);
+        }
+
+        .advertising-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .format-category {
+            padding: 40px;
+            background: var(--light-gray);
+            border-radius: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .format-list {
+            list-style: none;
+        }
+
+        .format-list li {
+            padding: 12px 0;
+            color: var(--text-light);
+            border-bottom: 1px solid rgba(26, 117, 107, 0.1);
+            font-size: 1.1rem;
+        }
+
+        .format-list li:last-child {
+            border-bottom: none;
+        }
+
+        .format-list li:before {
+            content: "→";
+            color: var(--primary-light);
+            margin-right: 12px;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-button {
+            background: white;
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-button:hover {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-darker);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-lightest);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-container {
+                padding: 15px 20px;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                border-top: 1px solid rgba(26, 117, 107, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .about-content,
+            .advertising-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">AR</div>
+                <span class="brand-name">CreativeGenZ</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#tools" class="nav-item">Services</a>
+                <a href="#advertising" class="nav-item">Expertise</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-subtitle">Brand Manager</div>
+                <h1 class="hero-title">
+                    Crafting <span class="highlight">memorable</span><br>
+                    brand experiences
+                </h1>
+                <p class="hero-description">
+                    Specializing in strategic brand development, visual identity design, and comprehensive brand management for forward-thinking companies.
+                </p>
+                <a href="#contact" class="cta-button">Let's Work Together</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About</h2>
+            <p class="section-subtitle fade-in">
+                Passionate about building brands that resonate, connect, and drive meaningful business growth through strategic thinking and creative excellence.
+            </p>
+            
+            <div class="about-content">
+                <div class="fade-in">
+                    <p class="about-text">
+                        With over 8 years of experience in brand management, I help businesses transform their vision into compelling brand stories that captivate audiences and drive growth. My approach combines strategic thinking with creative execution to deliver brands that not only look exceptional but perform exceptionally.
+                    </p>
+                    <p class="about-text">
+                        From startups to Fortune 500 companies, I've had the privilege of working with diverse clients across industries, helping them establish strong brand foundations, enhance market positioning, and create lasting connections with their target audiences.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Brands Managed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Client Retention</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Awards Won</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image fade-in">
+                    Brand Strategy & Creative Excellence
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Tools Section -->
+    <section id="tools" class="tools">
+        <div class="container">
+            <h2 class="section-title fade-in">Powerful Marketing Tools</h2>
+            <p class="section-subtitle fade-in">
+                Leveraging cutting-edge tools and platforms to deliver exceptional brand experiences and measurable results.
+            </p>
+            
+            <div class="tools-grid">
+                <div class="tool-card fade-in">
+                    <div class="tool-icon">📊</div>
+                    <h3 class="tool-title">Analytics & Insights</h3>
+                    <p class="tool-description">Advanced analytics platforms to track brand performance, audience engagement, and campaign effectiveness across all touchpoints.</p>
+                </div>
+                
+                <div class="tool-card fade-in">
+                    <div class="tool-icon">🎨</div>
+                    <h3 class="tool-title">Design & Creative</h3>
+                    <p class="tool-description">Professional design suites and creative platforms for developing compelling visual identities and brand assets.</p>
+                </div>
+                
+                <div class="tool-card fade-in">
+                    <div class="tool-icon">🚀</div>
+                    <h3 class="tool-title">Campaign Management</h3>
+                    <p class="tool-description">Comprehensive campaign management tools for planning, executing, and optimizing multi-channel marketing campaigns.</p>
+                </div>
+                
+                <div class="tool-card fade-in">
+                    <div class="tool-icon">📱</div>
+                    <h3 class="tool-title">Social Media</h3>
+                    <p class="tool-description">Advanced social media management platforms for scheduling, monitoring, and engaging with audiences across all networks.</p>
+                </div>
+                
+                <div class="tool-card fade-in">
+                    <div class="tool-icon">✉️</div>
+                    <h3 class="tool-title">Email Marketing</h3>
+                    <p class="tool-description">Sophisticated email marketing automation tools for personalized customer journeys and targeted communications.</p>
+                </div>
+                
+                <div class="tool-card fade-in">
+                    <div class="tool-icon">🎯</div>
+                    <h3 class="tool-title">Audience Targeting</h3>
+                    <p class="tool-description">Precision targeting tools and customer segmentation platforms for reaching the right audience with the right message.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advertising Formats Section -->
+    <section id="advertising" class="advertising">
+        <div class="container">
+            <h2 class="section-title fade-in">Advertising Formats & Channels</h2>
+            <p class="section-subtitle fade-in">
+                Expertise across diverse advertising formats and channels to maximize brand reach and engagement.
+            </p>
+            
+            <div class="advertising-grid">
+                <div class="format-category fade-in">
+                    <h3 class="category-title">Digital Advertising</h3>
+                    <ul class="format-list">
+                        <li>Search Engine Marketing (SEM)</li>
+                        <li>Social Media Advertising</li>
+                        <li>Display & Banner Advertising</li>
+                        <li>Video Advertising</li>
+                        <li>Native Advertising</li>
+                        <li>Programmatic Advertising</li>
+                        <li>Influencer Marketing</li>
+                    </ul>
+                </div>
+                
+                <div class="format-category fade-in">
+                    <h3 class="category-title">Traditional Media</h3>
+                    <ul class="format-list">
+                        <li>Television Advertising</li>
+                        <li>Radio Advertising</li>
+                        <li>Print Media</li>
+                        <li>Outdoor & Billboard</li>
+                        <li>Direct Mail</li>
+                        <li>Event Marketing</li>
+                        <li>Sponsorship Programs</li>
+                    </ul>
+                </div>
+                
+                <div class="format-category fade-in">
+                    <h3 class="category-title">Content Marketing</h3>
+                    <ul class="format-list">
+                        <li>Blog Content Strategy</li>
+                        <li>Video Content Production</li>
+                        <li>Podcast Marketing</li>
+                        <li>Webinar Campaigns</li>
+                        <li>White Paper Development</li>
+                        <li>Case Study Creation</li>
+                        <li>Interactive Content</li>
+                    </ul>
+                </div>
+                
+                <div class="format-category fade-in">
+                    <h3 class="category-title">Emerging Channels</h3>
+                    <ul class="format-list">
+                        <li>Connected TV (CTV)</li>
+                        <li>Audio Advertising</li>
+                        <li>AR/VR Experiences</li>
+                        <li>Voice Search Marketing</li>
+                        <li>Gaming & Esports</li>
+                        <li>Community Marketing</li>
+                        <li>Metaverse Advertising</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Let's Create Something Amazing</h2>
+            <p class="section-subtitle fade-in">
+                Ready to elevate your brand? Let's discuss how we can work together to achieve your business goals.
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">creativegenz@brand.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">+1 (555) 123-4567</div>
+                    </div>
+                </div>
+                
+                <a href="mailto:creativeGenZ@brandrivera.com" class="contact-button fade-in">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CreativeGenZ</h3>
+                    <p>Brand Manager specializing in strategic brand development and creative excellence for forward-thinking companies.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#">Brand Strategy</a>
+                    <a href="#">Visual Identity</a>
+                    <a href="#">Campaign Management</a>
+                    <a href="#">Market Research</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Industries</h3>
+                    <a href="#">Technology</a>
+                    <a href="#">Healthcare</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Retail</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Behance</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link">Li</a>
+                    <a href="#" class="social-link">Be</a>
+                    <a href="#" class="social-link">Tw</a>
+                    <a href="#" class="social-link">In</a>
+                </div>
+                <p>&copy; 2024 CreativeGenZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-container') && !e.target.closest('.mobile-menu-toggle')) {
+                document.querySelector('.nav-menu').classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(26, 117, 107, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate stats when they come into view
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const finalValue = stat.textContent;
+                const numericValue = parseInt(finalValue);
+                if (numericValue) {
+                    let currentValue = 0;
+                    const increment = numericValue / 50;
+                    const timer = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= numericValue) {
+                            stat.textContent = finalValue;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(currentValue) + (finalValue.includes('+') ? '+' : '') + (finalValue.includes('%') ? '%' : '');
+                        }
+                    }, 40);
+                }
+            });
+        }
+
+        // Trigger stats animation when about section is visible
+        const aboutSection = document.querySelector('#about');
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 500);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (aboutSection) {
+            statsObserver.observe(aboutSection);
+        }
+    </script>
+</body>
+</html>
